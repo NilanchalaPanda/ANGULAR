@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="authApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  </head>
+  <body
+    style="
+      background-color: lightblue;
+      font-family: 'Poppins', sans-serif;
+      color: black;
+      text-align: center;
+    "
+  >
+    <h1>Angular Authentication</h1>
+    <div
+      style="
+        border-radius: 30px;
+        background-color: white;
+        padding: 20px;
+        display: inline-block;
+        border: 3px solid black;
+      "
+    >
+      <div
+        ng-controller="AuthController as authCtrl"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        "
+      >
+        <h1>WELCOME BACK</h1>
+        <form
+          ng-submit="authCtrl.login()"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-direction: column;
+          "
+        >
+          <div>
+            <label for="username">Username:</label>
+            <input
+              style="padding: 2px 3px; font-size: 20px; border-radius: 5px"
+              type="text"
+              id="username"
+              ng-model="authCtrl.username"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input
+              style="padding: 2px 3px; font-size: 20px; border-radius: 5px"
+              type="password"
+              id="password"
+              ng-model="authCtrl.password"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            style="padding: 5px 10px; font-size: 14px; border-radius: 5px"
+          >
+            LOGIN
+          </button>
+        </form>
+        <div
+          ng-show="authCtrl.errorMessage"
+          style="color: red; margin-top: 10px; font-size: 17px; display: flex; flex-direction: column; gap: 10px;"
+        >
+          {{authCtrl.errorMessage}}
+          <img style="border-radius: 20px;" src="https://i.gifer.com/2GU.gif" alt="GIFFER" />
+        </div>
+        <div
+          ng-show="authCtrl.successMessage"
+          style="color: green; margin-top: 10px; font-size: 17px;  display: flex; flex-direction: column; gap: 10px;"
+        >
+          {{authCtrl.successMessage}}
+          <img style="border-radius: 20px;" src="https://i.gifer.com/WU7.gif" alt="GIFFER" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      angular.module("authApp", []).controller("AuthController", function () {
+        var authCtrl = this;
+
+        var validUsername = "nilanchal";
+        var validPassword = "panda";
+
+        authCtrl.login = function () {
+          if (
+            authCtrl.username === validUsername &&
+            authCtrl.password === validPassword
+          ) {
+            authCtrl.successMessage = "Login successful!";
+            authCtrl.errorMessage = "";
+          } else {
+            authCtrl.errorMessage = "Invalid username or password.";
+            authCtrl.successMessage = "";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
