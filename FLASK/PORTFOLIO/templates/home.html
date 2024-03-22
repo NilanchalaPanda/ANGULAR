@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      body {
+        color: white;
+        font-family: Arial, sans-serif;
+        padding: 0;
+        margin: 0;
+      }
+      nav {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+      }
+      nav a:hover {
+        background-color: #555;
+      }
+      section {
+        padding: 50px 100px;
+      }
+      footer {
+        background-color: #34343b;
+        padding: 20px 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav style="height: 10vh">
+      <a href="/intro">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <!-- First Section - Introduction -->
+    <section id="introduction" style="background-color: #4f4fe7">
+      <div style="display: flex; align-items: center; height: 65.8vh">
+        <div style="flex: 1">
+          <img
+            src="{{ url_for('static', filename='images/picture.jpg') }}"
+            alt="Your Photo"
+            style="max-width: 100%; height: auto; border-radius: 50px"
+          />
+        </div>
+        <div style="flex: 2; padding-left: 50px">
+          <h1 style="font-size: 80px; font-weight: bold">Nilanchala Panda</h1>
+          <p style="font-size: 18px; line-height: 1.5; margin-top: -50px">
+            Logical and organised individual with a strong foundation in
+            software engineering. Proficient in front end development. Seeking
+            to help the orgainsation by providing error-free codes. Excellent
+            teamwork, interpersonal and communication skills.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Third Section - Footer -->
+    <footer
+      style="background-color: #34343b; padding: 20px 0; text-align: center"
+    >
+      <p style="font-size: 14px; margin: 0">
+        &copy; 2024 Your Name. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
